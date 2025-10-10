@@ -1,4 +1,4 @@
-package com.mar.events;
+package com.mar.events.controllers;
 
 import com.mar.events.dtos.DepartmentDTO;
 import com.mar.events.services.DepartmentService;
