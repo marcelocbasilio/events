@@ -3,36 +3,36 @@ package com.mar.events.dtos;
 import com.mar.events.entities.Department;
 
 public class DepartmentDTO {
+	
+	public Long id;
+	public String name;
+	
+	public DepartmentDTO() {
+	}
 
-    private Long id;
-    private String name;
+	public DepartmentDTO(Long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
+	public DepartmentDTO(Department entity) {
+		id = entity.getId();
+		name = entity.getName();
+	}
 
-    public DepartmentDTO() {
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public DepartmentDTO(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public DepartmentDTO(Department department) {
-        id = department.getId();
-        name = department.getName();
-    }
+	public String getName() {
+		return name;
+	}
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 }

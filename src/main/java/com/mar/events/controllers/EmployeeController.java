@@ -26,20 +26,20 @@ import jakarta.validation.Valid;
 public class EmployeeController {
 
 	@Autowired
-	private EmployeeService employeeService;
+	private EmployeeService service;
 	
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_OPERATOR')")
 	@GetMapping
 	public ResponseEntity<Page<EmployeeDTO>> findAll(Pageable pageable) {
 		PageRequest pageRequest = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), Sort.by("name"));
-		Page<EmployeeDTO> list = employeeService.findAll(pageRequest);		
+		Page<EmployeeDTO> list = service.findAll(pageRequest);		
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@PostMapping
 	public ResponseEntity<EmployeeDTO> insert(@Valid @RequestBody EmployeeDTO dto) {
-		dto = employeeService.insert(dto);
+		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);

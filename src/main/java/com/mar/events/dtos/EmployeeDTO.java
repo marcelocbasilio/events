@@ -1,69 +1,70 @@
 package com.mar.events.dtos;
 
 import com.mar.events.entities.Employee;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class EmployeeDTO {
+	
+	private Long id;
+	
+	@NotBlank(message = "Required field")
+	private String name;
 
-    private Long id;
+	@Email(message = "Invalid email")
+	private String email;
+	
+	@NotNull(message = "Required field")
+	private Long departmentId;
+	
+	public EmployeeDTO() {
+	}
 
-    @NotBlank(message = "Field required")
-    private String name;
+	public EmployeeDTO(Long id, String name, String email, Long departmentId) {
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.departmentId = departmentId;
+	}
 
-    @Email(message = "Invalid e-mail")
-    private String email;
+	public EmployeeDTO(Employee entity) {
+		id = entity.getId();
+		name = entity.getName();
+		email = entity.getEmail();
+		departmentId = entity.getDepartment().getId();
+	}
 
-    @NotNull(message = "Field required")
-    private Long departmentId;
+	public Long getId() {
+		return id;
+	}
 
-    public EmployeeDTO() {
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public EmployeeDTO(Long id, String name, String email, Long departmentId) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.departmentId = departmentId;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public EmployeeDTO(Employee employee) {
-        id = employee.getId();
-        name = employee.getName();
-        email = employee.getEmail();
-        departmentId = employee.getDepartment().getId();
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public Long getDepartmentId() {
+		return departmentId;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(Long departmentId) {
-        this.departmentId = departmentId;
-    }
+	public void setDepartmentId(Long departmentId) {
+		this.departmentId = departmentId;
+	}
 }
