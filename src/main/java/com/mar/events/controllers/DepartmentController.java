@@ -19,7 +19,7 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService service;
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_OPERATOR')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR')")
 	@GetMapping
 	public ResponseEntity<List<DepartmentDTO>> findAll() {
 		List<DepartmentDTO> list = service.findAll();		

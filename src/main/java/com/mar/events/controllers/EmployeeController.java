@@ -28,7 +28,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_OPERATOR')")
+	@PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR')")
 	@GetMapping
 	public ResponseEntity<Page<EmployeeDTO>> findAll(Pageable pageable) {
 		PageRequest pageRequest = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), Sort.by("name"));
@@ -36,7 +36,7 @@ public class EmployeeController {
 		return ResponseEntity.ok().body(list);
 	}
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@PostMapping
 	public ResponseEntity<EmployeeDTO> insert(@Valid @RequestBody EmployeeDTO dto) {
 		dto = service.insert(dto);

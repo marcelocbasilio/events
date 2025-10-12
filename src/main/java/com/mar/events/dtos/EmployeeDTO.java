@@ -10,13 +10,13 @@ public class EmployeeDTO {
 	
 	private Long id;
 	
-	@NotBlank(message = "Required field")
+	@NotBlank(message = "Field required")
 	private String name;
 
 	@Email(message = "Invalid email")
 	private String email;
 	
-	@NotNull(message = "Required field")
+	@NotNull(message = "Field required")
 	private Long departmentId;
 	
 	public EmployeeDTO() {
