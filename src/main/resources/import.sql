@@ -26,3 +26,5 @@ INSERT INTO tb_employee(name, email, department_id) VALUES ('Tiago', 'tiago@gmai
 INSERT INTO tb_employee(name, email, department_id) VALUES ('Andressa', 'andressa@gmail.com', 2);
 INSERT INTO tb_employee(name, email, department_id) VALUES ('Meire', 'meire@gmail.com', 3);
 INSERT INTO tb_employee(name, email, department_id) VALUES ('Carol', 'carol@gmail.com', 1);
+
+INSERT INTO tb_city (id, name) VALUES (1, 'Fortaleza');
