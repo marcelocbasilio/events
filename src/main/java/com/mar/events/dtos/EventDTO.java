@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 import com.mar.events.entities.Event;
 
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -12,16 +13,17 @@ public class EventDTO implements Serializable {
 
     private Long id;
 
-    @NotBlank(message = "O nome é obrigatório")
+    @NotBlank(message = "The name field is required.")
     private String name;
 
-    @NotNull(message = "A data é obrigatória")
+    @Future(message = "The event date must be in the future.")
+    @NotNull(message = "The date field is required.")
     private LocalDate date;
 
-    @NotBlank(message = "A URL é obrigatória")
+    @NotBlank(message = "The URL field is required.")
     private String url;
 
-    @NotNull(message = "A cidade é obrigatória")
+    @NotNull(message = "The City field is required.")
     private Long cityId;
 
     public EventDTO() {

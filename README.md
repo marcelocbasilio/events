@@ -8,7 +8,7 @@
 
 - [x] POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e nome em branco
 
-- [ ] POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e data no passado
+- [x] POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e data no passado
 
 - [ ] POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e cidade nula
 

@@ -116,4 +116,21 @@ public class EventControllerIT {
 		
 		result.andExpect(status().isUnprocessableEntity());
 	}
+
+	@Test
+	void insertShouldReturn422WhenAdminLoggedAndDateInPast() throws Exception {
+
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
+		EventDTO dto = new EventDTO(null, "Java Forever", LocalDate.of(2020, 9, 7), "https://javaai.com", 1L);
+		String jsonBody = objectMapper.writeValueAsString(dto);
+
+		ResultActions result =
+				mockMvc.perform(post("/events")
+				    .header("Authorization", "Bearer " + accessToken)
+					.content(jsonBody)
+					.contentType(MediaType.APPLICATION_JSON)
+					.accept(MediaType.APPLICATION_JSON));
+		
+		result.andExpect(status().isUnprocessableEntity());
+	}
 }
