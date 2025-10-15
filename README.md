@@ -10,7 +10,7 @@
 
 - [x] POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e data no passado
 
-- [ ] POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e cidade nula
+- [x] POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e cidade nula
 
 - [ ] GET /events deve retornar 200 Ok com página de recursos
 

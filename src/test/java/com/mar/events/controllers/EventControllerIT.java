@@ -133,4 +133,21 @@ public class EventControllerIT {
 		
 		result.andExpect(status().isUnprocessableEntity());
 	}
+
+	@Test
+	void insertShouldReturn422WhenAdminLoggedAndCityIsNull() throws Exception {
+
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
+		EventDTO dto = new EventDTO(null, "Java Forever", LocalDate.now(), "https://javaai.com", null);
+		String jsonBody = objectMapper.writeValueAsString(dto);
+
+		ResultActions result =
+				mockMvc.perform(post("/events")
+				    .header("Authorization", "Bearer " + accessToken)
+					.content(jsonBody)
+					.contentType(MediaType.APPLICATION_JSON)
+					.accept(MediaType.APPLICATION_JSON));
+		
+		result.andExpect(status().isUnprocessableEntity());
+	}
 }
