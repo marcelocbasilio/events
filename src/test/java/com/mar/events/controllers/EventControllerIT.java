@@ -81,4 +81,22 @@ public class EventControllerIT {
 		result.andExpect(status().isCreated());
 
 	}
+
+	@Test
+	void insertShouldReturn201WhenAdminLoggedAndValidData() throws Exception {
+
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
+		EventDTO dto = new EventDTO(null, "Java AI", LocalDate.now(), "https://javaai.com", 1L);
+		String jsonBody = objectMapper.writeValueAsString(dto);
+		
+		ResultActions result =
+				mockMvc.perform(post("/events")
+				    .header("Authorization", "Bearer " + accessToken)
+					.content(jsonBody)
+					.contentType(MediaType.APPLICATION_JSON)
+					.accept(MediaType.APPLICATION_JSON));
+		
+		result.andExpect(status().isCreated());
+
+	}
 }
