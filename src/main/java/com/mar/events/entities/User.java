@@ -18,7 +18,6 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
-@SuppressWarnings("serial")
 @Entity
 @Table(name = "tb_user")
 public class User implements UserDetails {
@@ -106,12 +105,12 @@ public class User implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return roles;
+		return this.getRoles();
 	}
 
 	@Override
 	public String getUsername() {
-		return email;
+		return this.getEmail();
 	}
 
 	@Override

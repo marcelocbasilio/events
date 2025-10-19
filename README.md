@@ -1,10 +1,10 @@
 # events
 
-- [x] POST /events deve retornar 401 Unauthorized para usuário não logado
+- [ ] POST /events deve retornar 401 Unauthorized para usuário não logado
 
-- [x] POST /events deve retornar 201 Created para CLIENT logado e dados corretos
+- [ ] POST /events deve retornar 201 Created para CLIENT logado e dados corretos
 
-- [x] POST /events deve retornar 201 Created para ADMIN logado e dados corretos
+- [ ] POST /events deve retornar 201 Created para ADMIN logado e dados corretos
 
 - [x] POST /events deve retornar 422 Unproccessable Entity para ADMIN logado e nome em branco
 
